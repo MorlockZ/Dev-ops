@@ -1,0 +1,57 @@
+{% extends "info.html" %}
+{% block content %}
+
+        <div class="grades">
+                <ul class="grade">
+                    <li class="gg_info">必修门数</li>  
+                    <li class="gg_info">必修平均绩点</li>  
+                    <li class="gg_info">必修总学分</li> 
+                </ul>
+                <ul class="grade">
+                        <li class="gg_info">{{content.总绩点.必修门数}}</li> 
+                       <li class="gg_info">{{content.总绩点.必修平均绩点}}</li>  
+                        <li class="gg_info">{{content.总绩点.必修总学分}}</li> 
+                    </ul>
+            
+        </div>
+
+        <div class="grades">
+            <ul class="grade">
+                <li class="gg_info">必修门数</li>
+                <li class="ggs_info">必修平均绩点</li>
+                <li class="ggs_info">学年度</li>
+                <li class="ggs_info">必修总学分</li>
+                <li class="ggs_info">学期</li>
+            </ul>
+            {% for grade in content.绩点 %}
+            <ul class="grade">
+                <li class="gg_info">{{grade.必修门数}}</li>
+                <li class="ggs_info">{{grade.必修平均绩点}}</li>
+                <li class="ggs_info">{{grade.学年度}}</li>
+                <li class="ggs_info">{{grade.必修总学分}}</li>
+                <li class="ggs_info">{{grade.学期}}</li>
+            </ul>
+            {% endfor %}
+        </div>   
+
+        <div class="grades" >
+        <ul class="grade">
+            <li class="gg_info" >课程名称</li> 
+            <li class="ggs_info" >课程时间</li>
+            <li class="g_info" >课程类别</li> 
+            <li class="g_info" >学分</li> 
+            <li class="g_info" >成绩</li>
+            <li class="g_info last" >绩点</li> 
+        </ul>
+        {% for grade in content.成绩 %}
+        <ul class="grade" >
+            <li class="gg_info" >{{grade.课程名称}}</li>  
+            <li class="ggs_info" >{{grade.学年学期}}</li> 
+            <li class="g_info" >{{grade.课程类别}}</li> 
+            <li class="g_info" >{{grade.学分}}</li> 
+            <li class="g_info" >{{grade.最终}}</li> 
+            <li class="g_info last" >{{grade.绩点}}</li>
+        </ul>
+        {% endfor %}
+        </div>
+{% endblock %}
